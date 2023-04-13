@@ -154,7 +154,7 @@ CHANNEL_LAYERS = {
         'BACKEND': "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
             # change 127 to the server of the webapp
-            "hosts": [("red-cgrfd4rk9u56e3mi5p00", 6379)]
+            "hosts": [("redis://red-cgrfd4rk9u56e3mi5p00", 6379)]
         }
         }
     }
