@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 import environ
+import redis
+import django_redis
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,8 +30,8 @@ SECRET_KEY = env('SECRET')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ['chatapp-jgrw.onrender.com']
+# https://chatapp-jgrw.onrender.com
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -148,16 +150,28 @@ MIDDLEWARE_CLASSES = (
 
 ASGI_APPLICATION = "chatapp.asgi.application"
 
+
+
 # channel layer
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
             # change 127 to the server of the webapp
-            "hosts": [("red-cgrfd4rk9u56e3mi5p00", 6379)]
+            "hosts": [env('REDIS_URL')]
         }
         }
     }
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://red-cgrfd4rk9u56e3mi5p00:6379',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        },
+    },
+}
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
