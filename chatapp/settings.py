@@ -150,6 +150,8 @@ MIDDLEWARE_CLASSES = (
 
 ASGI_APPLICATION = "chatapp.asgi.application"
 
+# Django settings.py
+CHANNELS_WORKER = 'channels.worker.GunicornWebWorker'
 
 
 # channel layer
