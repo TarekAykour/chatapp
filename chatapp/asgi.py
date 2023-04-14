@@ -24,7 +24,11 @@ import backend.route
 application = ProtocolTypeRouter({
     "http": application,
     "websocket": AllowedHostsOriginValidator(
-            AuthMiddlewareStack(URLRouter(backend.route.websocket_urlpatterns))
+            AuthMiddlewareStack(
+                URLRouter(
+                backend.route.websocket_urlpatterns
+    )
+    )
         ),
     # Just HTTP for now. (We can add other protocols later.)
 })
