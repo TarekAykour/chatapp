@@ -29,7 +29,7 @@ SECRET_KEY = env('SECRET')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['chatapp-jgrw.onrender.com']
 
 
 # Application definition
@@ -154,7 +154,7 @@ CHANNEL_LAYERS = {
         'BACKEND': "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
             # change 127 to the server of the webapp
-            "hosts": [("redis://red-cgrfd4rk9u56e3mi5p00", 6379)]
+            "hosts": [("red-cgrfd4rk9u56e3mi5p00", 6379)]
         }
         }
     }
