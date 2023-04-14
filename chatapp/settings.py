@@ -14,7 +14,6 @@ from pathlib import Path
 import os
 import environ
 import redis
-import django_redis
 import channels
 
 
