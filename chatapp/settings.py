@@ -15,7 +15,7 @@ import os
 import environ
 import redis
 import django_redis
-from channels import worker
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -152,8 +152,8 @@ MIDDLEWARE_CLASSES = (
 
 ASGI_APPLICATION = "chatapp.asgi.application"
 
-# Django settings.py
-CHANNELS_WORKER = 'channels.worker.GunicornWebWorker'
+
+
 
 
 # channel layer
