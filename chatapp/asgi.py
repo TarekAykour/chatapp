@@ -22,8 +22,6 @@ import backend.route
 
 
 
-django.setup()
-
 django_asgi_app = get_asgi_application()
 
 application = ProtocolTypeRouter({
