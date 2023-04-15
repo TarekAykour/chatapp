@@ -16,13 +16,13 @@ from channels.security.websocket import AllowedHostsOriginValidator
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'chatapp.settings')
 
-application = get_asgi_application()
+
 
 
 import backend.route
 
 application = ProtocolTypeRouter({
-    "http": application,
+    "http": get_asgi_application(),
     "websocket": AllowedHostsOriginValidator(
             AuthMiddlewareStack(
                 URLRouter(
