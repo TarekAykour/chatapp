@@ -34,9 +34,9 @@ SECRET_KEY = env('SECRET')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 # https://chatapp-jgrw.onrender.com
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['chatapp-jgrw.onrender.com']
 
 
 # Application definition
