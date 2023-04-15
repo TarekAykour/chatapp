@@ -34,7 +34,7 @@ function Chat(){
 
     const chatSocket = useMemo(() => {
         // create new websocket
-        const socket = new WebSocket(`wss://${window.location.host}/wss/${title}/${chat_id}/`);
+        const socket = new WebSocket(`wss://${window.location.host}/ws/${title}/${chat_id}/`);
         // what should happen when the socket closes
         socket.onclose = function(e) {
            console.log('disconnected!')
